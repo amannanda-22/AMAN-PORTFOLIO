@@ -1,0 +1,13 @@
+{
+  "name": "aman-nanda-portfolio",
+  "version": "1.0.0",
+  "description": "Aman Nanda — Generative AI Engineer Portfolio",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

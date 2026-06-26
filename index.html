@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ===== EASY EDIT GUIDE =====
+  RESUME: Replace public/resume.pdf with your resume file (keep same filename)
+  PHOTO:  In main.css find .about-photo, set background-image: url('/your-photo.jpg') and comment out the .about-initials div
+  EMAIL:  Search "amananda022@gmail.com" — replace all instances
+  PHONE:  Search "+91 6281947629" — replace
+  COLORS: In src/styles/main.css :root block, change --volt, --ember etc.
+  GITHUB: Search "github.com/amannanda-22" — replace
+  LINKEDIN: Search "nanda-aman" — replace
+===== END EDIT GUIDE ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aman Nanda — Generative AI Engineer. Building production-ready AI systems: LLMs, RAG, AI Agents, Quantum Computing. Open to opportunities." />
+  <meta name="keywords" content="Aman Nanda, AI Engineer, Generative AI, LLM, RAG, LangChain, Python, Machine Learning" />
+  <meta property="og:title" content="Aman Nanda — Generative AI Engineer" />
+  <meta property="og:description" content="Building production-ready AI systems that think, learn, and ship." />
+  <meta property="og:type" content="website" />
+  <title>Aman Nanda — Generative AI Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Devicon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+
+<!-- ======== FILM GRAIN OVERLAY ======== -->
+<div id="grain" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <filter id="noise-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noise-filter)" opacity="0.03"/>
+  </svg>
+</div>
+
+<!-- ======== CUSTOM CURSOR ======== -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"><span id="cursor-label"></span></div>
+
+<!-- ======== SCROLL PROGRESS BAR ======== -->
+<div id="scroll-progress"></div>
+
+<!-- ======== SECTION COUNTER ======== -->
+<div id="section-counter" aria-hidden="true">
+  <span id="counter-current">01</span>
+  <span class="counter-sep">/</span>
+  <span id="counter-total">07</span>
+</div>
+
+<!-- ======== PRELOADER ======== -->
+<div id="preloader">
+  <div id="preloader-letters">
+    <div class="pl-letter"><span>A</span></div>
+    <div class="pl-letter"><span>M</span></div>
+    <div class="pl-letter"><span>A</span></div>
+    <div class="pl-letter"><span>N</span></div>
+  </div>
+  <div id="preloader-counter">000</div>
+  <div id="preloader-label">PORTFOLIO 2026</div>
+  <div id="preloader-top"></div>
+  <div id="preloader-bot"></div>
+</div>
+
+<!-- ======== NAVIGATION ======== -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo" data-cursor="hover">AN</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about" data-cursor="hover">About</a></li>
+    <li><a href="#experience" data-cursor="hover">Work</a></li>
+    <li><a href="#projects" data-cursor="hover">Projects</a></li>
+    <li><a href="#skills" data-cursor="hover">Skills</a></li>
+    <li><a href="#achievements" data-cursor="hover">Achievements</a></li>
+    <li><a href="#contact" data-cursor="hover">Contact</a></li>
+  </ul>
+  <div class="resume-btn-wrap" style="flex-shrink:0;">
+    <button class="nav-resume" id="nav-resume-btn" data-cursor="hover">Resume ↓</button>
+    <div class="resume-dropdown" id="nav-resume-dropdown" style="right:0;left:auto;">
+      <a href="/resume.pdf" target="_blank" rel="noopener" class="resume-option">
+        <span class="rd-icon">🤖</span>
+        <span class="rd-info">
+          <span class="rd-title">AI / General Resume</span>
+          <span class="rd-sub">For AI, ML &amp; software roles</span>
+        </span>
+        <span class="rd-dl">↓</span>
+      </a>
+      <a href="/quantum-resume.pdf" target="_blank" rel="noopener" class="resume-option">
+        <span class="rd-icon">⚛</span>
+        <span class="rd-info">
+          <span class="rd-title">Quantum Resume</span>
+          <span class="rd-sub">For quantum computing &amp; research roles</span>
+        </span>
+        <span class="rd-dl">↓</span>
+      </a>
+    </div>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+  <button id="mobile-close" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ======== HERO ======== -->
+<section id="hero" data-section="01">
+  <div class="hero-clock" id="ist-clock">IST 00:00:00</div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">BSc AI &nbsp;·&nbsp; CGPA 9.0 &nbsp;·&nbsp; Vizag, India</p>
+
+    <div class="hero-name">
+      <div class="hero-name-line clip-wrap"><span class="clip-inner" id="hero-aman">AMAN</span></div>
+      <div class="hero-name-line clip-wrap"><span class="clip-inner" id="hero-nanda"><span class="volt-n">N</span>ANDA</span></div>
+    </div>
+
+    <div class="hero-role-wrap">
+      <div id="role-ticker" class="hero-role">Generative AI Engineer</div>
+    </div>
+
+    <p class="hero-tagline">Building production-ready AI systems that think, learn, and ship.</p>
+
+    <div class="hero-status" style="margin-bottom:28px;">
+      <span class="status-dot"></span>
+      AVAILABLE FOR INTERNSHIPS &amp; ROLES
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary js-smooth" data-cursor="hover">View My Work</a>
+      <div class="resume-btn-wrap">
+        <button class="btn-secondary" id="resume-btn" data-cursor="hover">Download Resume ↓</button>
+        <div class="resume-dropdown" id="resume-dropdown">
+          <a href="/resume.pdf" target="_blank" rel="noopener" class="resume-option">
+            <span class="rd-icon">🤖</span>
+            <span class="rd-info">
+              <span class="rd-title">AI / General Resume</span>
+              <span class="rd-sub">For AI, ML &amp; software roles</span>
+            </span>
+            <span class="rd-dl">↓</span>
+          </a>
+          <a href="/quantum-resume.pdf" target="_blank" rel="noopener" class="resume-option">
+            <span class="rd-icon">⚛</span>
+            <span class="rd-info">
+              <span class="rd-title">Quantum Resume</span>
+              <span class="rd-sub">For quantum computing &amp; research roles</span>
+            </span>
+            <span class="rd-dl">↓</span>
+          </a>
+        </div>
+      </div>
+      <a href="#contact" class="btn-ghost js-smooth" data-cursor="hover">Get In Touch →</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+
+  <div class="hero-stats-bar">
+    <div class="stat-item">
+      <span class="stat-num" style="font-family:'Instrument Serif',serif">9.0</span>
+      <span class="stat-label">CGPA</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" style="font-family:'Instrument Serif',serif">3+</span>
+      <span class="stat-label">Internships</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" style="font-family:'Instrument Serif',serif">6+</span>
+      <span class="stat-label">AI Projects</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" style="font-family:'Instrument Serif',serif">9+</span>
+      <span class="stat-label">Certifications</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======== MARQUEE STRIP ======== -->
+<div class="marquee-strip" id="marquee-strip">
+  <div class="marquee-track" id="marquee-track">
+    <div class="marquee-inner">
+      GENERATIVE AI <span class="m-dot">·</span> LLM ENGINEERING <span class="m-dot">·</span> RAG PIPELINES <span class="m-dot">·</span> AI AGENTS <span class="m-dot">·</span> LANGCHAIN <span class="m-dot">·</span> LANGGRAPH <span class="m-dot">·</span> PYTHON <span class="m-dot">·</span> MACHINE LEARNING <span class="m-dot">·</span> NLP <span class="m-dot">·</span> CREWAI <span class="m-dot">·</span> GEMINI 2.5 <span class="m-dot">·</span> FASTAPI <span class="m-dot">·</span> DOCKER <span class="m-dot">·</span>&nbsp;
+    </div>
+    <div class="marquee-inner" aria-hidden="true">
+      GENERATIVE AI <span class="m-dot">·</span> LLM ENGINEERING <span class="m-dot">·</span> RAG PIPELINES <span class="m-dot">·</span> AI AGENTS <span class="m-dot">·</span> LANGCHAIN <span class="m-dot">·</span> LANGGRAPH <span class="m-dot">·</span> PYTHON <span class="m-dot">·</span> MACHINE LEARNING <span class="m-dot">·</span> NLP <span class="m-dot">·</span> CREWAI <span class="m-dot">·</span> GEMINI 2.5 <span class="m-dot">·</span> FASTAPI <span class="m-dot">·</span> DOCKER <span class="m-dot">·</span>&nbsp;
+    </div>
+    <div class="marquee-inner" aria-hidden="true">
+      GENERATIVE AI <span class="m-dot">·</span> LLM ENGINEERING <span class="m-dot">·</span> RAG PIPELINES <span class="m-dot">·</span> AI AGENTS <span class="m-dot">·</span> LANGCHAIN <span class="m-dot">·</span> LANGGRAPH <span class="m-dot">·</span> PYTHON <span class="m-dot">·</span> MACHINE LEARNING <span class="m-dot">·</span> NLP <span class="m-dot">·</span> CREWAI <span class="m-dot">·</span> GEMINI 2.5 <span class="m-dot">·</span> FASTAPI <span class="m-dot">·</span> DOCKER <span class="m-dot">·</span>&nbsp;
+    </div>
+  </div>
+</div>
+
+<!-- ======== ABOUT ======== -->
+<section id="about" data-section="01">
+  <div class="section-label">/ 01 ABOUT</div>
+  <div class="about-grid">
+
+    <div class="about-left">
+      <div class="about-photo-wrap sticky-col">
+        <div class="about-photo">
+          <img src="/photo.jpg" alt="Aman Nanda" class="about-photo-img" />
+        </div>
+        <p class="about-photo-caption">Aman Nanda, 2026 — Visakhapatnam, India</p>
+        <div class="about-info-rows">
+          <div class="info-row" data-cursor="hover">
+            <span class="info-label">Location</span>
+            <span class="info-val">Visakhapatnam, India</span>
+          </div>
+          <div class="info-row" data-cursor="hover">
+            <span class="info-label">Degree</span>
+            <span class="info-val">B.Sc. Artificial Intelligence</span>
+          </div>
+          <div class="info-row" data-cursor="hover">
+            <span class="info-label">CGPA</span>
+            <span class="info-val">9.0 / 10</span>
+          </div>
+          <div class="info-row" data-cursor="hover">
+            <span class="info-label">Status</span>
+            <span class="info-val status-open">Open to Work <span class="status-dot-sm"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h2 class="about-heading reveal">Building AI that works in the real world.</h2>
+      <p class="about-para reveal">
+        I'm an AI undergraduate at Aditya Degree College, Visakhapatnam, graduating in 2026 with a 9.0 CGPA. I specialize in Generative AI, LLM Engineering, RAG pipelines, and Agentic AI systems using LangChain, LangGraph, and CrewAI.
+      </p>
+      <p class="about-para reveal">
+        Hackathon winner, Deloitte &amp; VaultOfCodes intern, IBM &amp; Cisco certified. I build production-ready AI applications — from autonomous research agents to LLM evaluation platforms — that solve real business problems.
+      </p>
+
+      <div class="about-stats-grid">
+        <div class="stat-card" data-cursor="hover">
+          <span class="stat-card-num" data-target="9.0" data-decimal="1">0</span>
+          <span class="stat-card-label">CGPA Score</span>
+        </div>
+        <div class="stat-card" data-cursor="hover">
+          <span class="stat-card-num" data-target="3" data-suffix="+">0</span>
+          <span class="stat-card-label">Internships Completed</span>
+        </div>
+        <div class="stat-card" data-cursor="hover">
+          <span class="stat-card-num" data-target="6" data-suffix="+">0</span>
+          <span class="stat-card-label">AI Projects Built</span>
+        </div>
+        <div class="stat-card" data-cursor="hover">
+          <span class="stat-card-num" data-target="9" data-suffix="+">0</span>
+          <span class="stat-card-label">Certifications Earned</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======== EXPERIENCE ======== -->
+<section id="experience" data-section="02">
+  <div class="section-label">/ 02 EXPERIENCE</div>
+  <h2 class="section-heading reveal">Where I've Worked</h2>
+
+  <div class="timeline">
+    <div class="timeline-line"><div class="timeline-line-fill"></div></div>
+
+    <div class="timeline-item reveal-up" data-cursor="hover">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-top">
+          <div>
+            <span class="tl-company" style="color:#86BC25">Deloitte</span>
+            <h3 class="tl-role">Data Analytics Virtual Simulation</h3>
+          </div>
+          <span class="tl-period">2025</span>
+        </div>
+        <p class="tl-desc">Analyzed business datasets using EDA and statistical modeling. Built Power BI dashboards surfacing actionable KPIs for stakeholder decisions.</p>
+        <div class="tl-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">EDA</span>
+          <span class="tag">Python</span>
+          <span class="tag">Statistics</span>
+          <span class="tag">Data Visualization</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-up" data-cursor="hover">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-top">
+          <div>
+            <span class="tl-company" style="color:#F2C811">ULearn</span>
+            <h3 class="tl-role">Power BI Data Analytics Intern</h3>
+          </div>
+          <span class="tl-period">2025</span>
+        </div>
+        <p class="tl-desc">Designed multi-department KPI dashboards in Power BI. Streamlined data workflows and delivered data-driven insights for business decision-making.</p>
+        <div class="tl-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">DAX</span>
+          <span class="tag">Data Modeling</span>
+          <span class="tag">KPIs</span>
+          <span class="tag">Excel</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-up" data-cursor="hover">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-top">
+          <div>
+            <span class="tl-company" style="color:#FF6B35">VaultOfCodes</span>
+            <h3 class="tl-role">Python Developer Intern</h3>
+          </div>
+          <span class="tl-period">2025</span>
+        </div>
+        <p class="tl-desc">Developed Python automation scripts, ETL pipeline solutions, and data preprocessing workflows. Collaborated on real-world development delivering quality solutions.</p>
+        <div class="tl-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Automation</span>
+          <span class="tag">ETL</span>
+          <span class="tag">APIs</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PROJECTS ======== -->
+<section id="projects" data-section="03">
+  <div class="section-label">/ 03 SELECTED WORK</div>
+  <h2 class="section-heading reveal">Things I've Built</h2>
+  <p class="section-sub reveal">Production-ready AI systems built with real-world impact.</p>
+
+  <!-- PROJECT 1: AgentX -->
+  <div class="project-row" id="proj-agentx">
+    <div class="project-visual proj-left reveal-left" data-cursor="view" data-tilt>
+      <div class="terminal-card">
+        <div class="terminal-bar">
+          <span class="t-dot t-red"></span>
+          <span class="t-dot t-yellow"></span>
+          <span class="t-dot t-green"></span>
+          <span class="t-title">agentx — bash</span>
+        </div>
+        <div class="terminal-body">
+          <p><span class="t-prompt">$</span> python agentx.py --task "AI market trends"</p>
+          <p class="t-out"><span class="t-volt">›</span> Initializing multi-agent workflow...</p>
+          <p class="t-out"><span class="t-volt">›</span> Loading LangGraph orchestrator...</p>
+          <p class="t-out"><span class="t-volt">›</span> CrewAI agents: <span class="t-bracket">[</span>Researcher<span class="t-bracket">]</span> <span class="t-bracket">[</span>Analyst<span class="t-bracket">]</span> <span class="t-bracket">[</span>Writer<span class="t-bracket">]</span></p>
+          <p class="t-out"><span class="t-volt">›</span> Semantic memory: ChromaDB connected <span class="t-green-text">✓</span></p>
+          <p class="t-out"><span class="t-volt">›</span> Web research: Tavily API connected <span class="t-green-text">✓</span></p>
+          <p class="t-out t-blink"><span class="t-volt">›</span> AgentX ready. Starting research task<span class="t-cursor">_</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="project-text proj-right reveal-right">
+      <span class="proj-num">01</span>
+      <h3 class="proj-title">AgentX</h3>
+      <p class="proj-subtitle">Autonomous AI Research Agent</p>
+      <span class="proj-year">2025</span>
+      <p class="proj-desc">Production-ready autonomous research platform using LangGraph and CrewAI. Multi-agent workflow with semantic memory, real-time web research, automated report generation, and cost tracking.</p>
+      <div class="proj-chips">
+        <span class="chip">Multi-Agent Workflow</span>
+        <span class="chip">Semantic Memory</span>
+        <span class="chip">Web Research</span>
+        <span class="chip">Report Generation</span>
+        <span class="chip">ChromaDB</span>
+      </div>
+      <div class="proj-tags">
+        <span class="tag">Python</span><span class="tag">LangGraph</span><span class="tag">CrewAI</span><span class="tag">LangChain</span><span class="tag">Gemini 2.5</span><span class="tag">Docker</span><span class="tag">ChromaDB</span>
+      </div>
+      <div class="proj-ctas">
+        <a href="https://github.com/amannanda-22" target="_blank" rel="noopener" class="proj-btn" data-cursor="hover">View on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-divider"></div>
+
+  <!-- PROJECT 2: DocuMind Pro -->
+  <div class="project-row proj-row-rev" id="proj-documind">
+    <div class="project-text proj-left reveal-left">
+      <span class="proj-num">02</span>
+      <h3 class="proj-title">DocuMind Pro</h3>
+      <p class="proj-subtitle">Multi-PDF RAG Intelligence System</p>
+      <span class="proj-year">2025</span>
+      <p class="proj-desc">Enterprise-grade RAG application for intelligent PDF analysis. Semantic search, vector embeddings, citation-based Q&amp;A using LangChain and Gemini 2.5 Flash with full conversation history.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span><span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">Gemini 2.5</span><span class="tag">ChromaDB</span><span class="tag">Streamlit</span>
+      </div>
+      <div class="proj-ctas">
+        <a href="https://github.com/amannanda-22" target="_blank" rel="noopener" class="proj-btn" data-cursor="hover">View on GitHub ↗</a>
+      </div>
+    </div>
+    <div class="project-visual proj-right reveal-right" data-cursor="view" data-tilt>
+      <div class="chat-card">
+        <div class="chat-header">
+          <span class="chat-icon">📄</span>
+          <span class="chat-title">DocuMind Pro</span>
+          <span class="chat-status">3 PDFs loaded</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg user">Summarize the key findings from this research paper</div>
+          <div class="chat-msg ai">
+            Based on the uploaded document, the key findings are:
+            <br/><br/>
+            <strong>(1)</strong> The proposed RAG architecture achieves 94.7% retrieval accuracy across 1,200 test queries.
+            <br/><strong>(2)</strong> Semantic chunking improves context quality by 38% vs. fixed-size chunking.
+            <br/><strong>(3)</strong> Response latency reduced to 1.2s average with optimized embedding pipeline.
+          </div>
+          <div class="chat-sources">
+            <span class="source-pill">Page 4 · §2.3</span>
+            <span class="source-pill">Page 11 · §4.1</span>
+            <span class="source-pill">Page 18 · §5.2</span>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <span class="chat-input-fake">Ask anything about your documents...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-divider"></div>
+
+  <!-- PROJECT 3: EvalMind -->
+  <div class="project-row" id="proj-evalmind">
+    <div class="project-visual proj-left reveal-left" data-cursor="view" data-tilt>
+      <div class="dashboard-card">
+        <div class="dash-header">EvalMind — LLM Quality Dashboard</div>
+        <div class="dash-metrics">
+          <div class="metric-card">
+            <span class="metric-label">Hallucination Rate</span>
+            <span class="metric-val" style="color:#22c55e">2.3%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Response Quality</span>
+            <span class="metric-val" style="color:var(--volt)">94.7</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Confidence Score</span>
+            <div class="metric-bar-wrap">
+              <div class="metric-bar" style="width:91%"></div>
+            </div>
+            <span class="metric-sub">0.91 / 1.00</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Cost / Query</span>
+            <span class="metric-val" style="color:var(--slate)">$0.0023</span>
+          </div>
+        </div>
+        <div class="dash-chart">
+          <div class="chart-label">Quality Trend</div>
+          <div class="chart-bars">
+            <div class="chart-bar" style="height:60%"></div>
+            <div class="chart-bar" style="height:75%"></div>
+            <div class="chart-bar" style="height:70%"></div>
+            <div class="chart-bar" style="height:85%"></div>
+            <div class="chart-bar" style="height:80%"></div>
+            <div class="chart-bar" style="height:90%"></div>
+            <div class="chart-bar" style="height:88%"></div>
+            <div class="chart-bar active" style="height:95%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project-text proj-right reveal-right">
+      <span class="proj-num">03</span>
+      <h3 class="proj-title">EvalMind</h3>
+      <p class="proj-subtitle">LLM Output Quality Monitor</p>
+      <span class="proj-year">2025</span>
+      <p class="proj-desc">Production-ready LLM evaluation platform using RAGAS. Measures response quality, hallucination detection, confidence scoring with automated cost tracking and comprehensive analytics.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span><span class="tag">RAGAS</span><span class="tag">Gemini 2.5</span><span class="tag">Streamlit</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Docker</span>
+      </div>
+      <div class="proj-ctas">
+        <a href="https://github.com/amannanda-22" target="_blank" rel="noopener" class="proj-btn" data-cursor="hover">View on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-divider"></div>
+
+  <!-- PROJECT 4: Quantum Job Tracker -->
+  <div class="project-row proj-row-rev" id="proj-quantum">
+    <div class="project-text proj-left reveal-left">
+      <span class="proj-num">04</span>
+      <h3 class="proj-title">Quantum Job Tracker</h3>
+      <p class="proj-subtitle">IBM Quantum API Integration</p>
+      <span class="proj-year">2025–2026</span>
+      <p class="proj-desc">Real-time quantum computing job monitoring dashboard. Tracks job queues and executes circuits on IBM Quantum hardware using Qiskit. Built during AQV Hackathon — won 1st Prize.</p>
+      <div class="proj-chips">
+        <span class="chip chip-volt">🏆 AQV Hackathon Winner</span>
+      </div>
+      <div class="proj-tags">
+        <span class="tag">Qiskit</span><span class="tag">IBM Quantum</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">OpenQASM</span>
+      </div>
+      <div class="proj-ctas">
+        <a href="https://github.com/amannanda-22" target="_blank" rel="noopener" class="proj-btn" data-cursor="hover">View on GitHub ↗</a>
+      </div>
+    </div>
+    <div class="project-visual proj-right reveal-right" data-cursor="view" data-tilt>
+      <div class="quantum-card">
+        <div class="quantum-header">
+          <span class="qh-logo">⚛</span>
+          <span class="qh-title">IBM Quantum Platform</span>
+          <span class="qh-status">● Connected</span>
+        </div>
+        <div class="quantum-metrics">
+          <div class="qm-item"><span class="qm-label">Jobs Running</span><span class="qm-val">3</span></div>
+          <div class="qm-item"><span class="qm-label">Queue Position</span><span class="qm-val">#7</span></div>
+          <div class="qm-item"><span class="qm-label">Backend</span><span class="qm-val">ibm_brisbane</span></div>
+          <div class="qm-item"><span class="qm-label">Qubits</span><span class="qm-val">127</span></div>
+        </div>
+        <div class="circuit-viz">
+          <div class="circuit-label">Active Circuit</div>
+          <div class="circuit-lines">
+            <div class="q-line"><span class="q-label">q[0]</span><div class="q-wire"><div class="q-gate q-h">H</div><div class="q-ctrl"></div></div></div>
+            <div class="q-line"><span class="q-label">q[1]</span><div class="q-wire"><div class="q-space"></div><div class="q-gate q-cx">CX</div></div></div>
+            <div class="q-line"><span class="q-label">q[2]</span><div class="q-wire"><div class="q-gate q-rz">RZ</div><div class="q-space"></div></div></div>
+          </div>
+        </div>
+        <div class="q-histogram">
+          <div class="qh-bar" style="height:80%"><span>|00⟩</span></div>
+          <div class="qh-bar" style="height:15%"><span>|01⟩</span></div>
+          <div class="qh-bar" style="height:5%"><span>|10⟩</span></div>
+          <div class="qh-bar" style="height:10%"><span>|11⟩</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SKILLS ======== -->
+<section id="skills" data-section="04">
+  <div class="section-label">/ 04 TECH STACK</div>
+  <h2 class="section-heading reveal">My Toolkit</h2>
+
+  <div class="skills-marquees">
+
+    <!-- Row 1 → LEFT -->
+    <div class="skill-row" data-dir="left" data-speed="0.5">
+      <div class="skill-track">
+        <div class="skill-items">
+          <span class="skill-pill"><i class="devicon-python-plain colored"></i> Python</span>
+          <span class="skill-pill"><i class="devicon-mysql-plain colored"></i> SQL</span>
+          <span class="skill-pill"><i class="devicon-java-plain colored"></i> Java</span>
+          <span class="skill-pill"><i class="devicon-c-plain colored"></i> C</span>
+          <span class="skill-pill"><i class="devicon-git-plain colored"></i> Git</span>
+          <span class="skill-pill"><i class="devicon-github-original"></i> GitHub</span>
+          <span class="skill-pill"><i class="devicon-docker-plain colored"></i> Docker</span>
+          <span class="skill-pill"><i class="devicon-linux-plain"></i> Linux</span>
+          <span class="skill-pill"><i class="devicon-vscode-plain colored"></i> VS Code</span>
+          <span class="skill-pill">📮 Postman</span>
+        </div>
+        <div class="skill-items" aria-hidden="true">
+          <span class="skill-pill"><i class="devicon-python-plain colored"></i> Python</span>
+          <span class="skill-pill"><i class="devicon-mysql-plain colored"></i> SQL</span>
+          <span class="skill-pill"><i class="devicon-java-plain colored"></i> Java</span>
+          <span class="skill-pill"><i class="devicon-c-plain colored"></i> C</span>
+          <span class="skill-pill"><i class="devicon-git-plain colored"></i> Git</span>
+          <span class="skill-pill"><i class="devicon-github-original"></i> GitHub</span>
+          <span class="skill-pill"><i class="devicon-docker-plain colored"></i> Docker</span>
+          <span class="skill-pill"><i class="devicon-linux-plain"></i> Linux</span>
+          <span class="skill-pill"><i class="devicon-vscode-plain colored"></i> VS Code</span>
+          <span class="skill-pill">📮 Postman</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 → RIGHT -->
+    <div class="skill-row" data-dir="right" data-speed="0.4">
+      <div class="skill-track">
+        <div class="skill-items">
+          <span class="skill-pill">✨ Generative AI</span>
+          <span class="skill-pill">🧠 LLMs</span>
+          <span class="skill-pill">🔗 LangChain</span>
+          <span class="skill-pill">📊 LangGraph</span>
+          <span class="skill-pill">👥 CrewAI</span>
+          <span class="skill-pill">🔍 RAG Pipelines</span>
+          <span class="skill-pill">🤖 AI Agents</span>
+          <span class="skill-pill">✍️ Prompt Engineering</span>
+          <span class="skill-pill">📈 RAGAS</span>
+          <span class="skill-pill">🤗 Hugging Face</span>
+        </div>
+        <div class="skill-items" aria-hidden="true">
+          <span class="skill-pill">✨ Generative AI</span>
+          <span class="skill-pill">🧠 LLMs</span>
+          <span class="skill-pill">🔗 LangChain</span>
+          <span class="skill-pill">📊 LangGraph</span>
+          <span class="skill-pill">👥 CrewAI</span>
+          <span class="skill-pill">🔍 RAG Pipelines</span>
+          <span class="skill-pill">🤖 AI Agents</span>
+          <span class="skill-pill">✍️ Prompt Engineering</span>
+          <span class="skill-pill">📈 RAGAS</span>
+          <span class="skill-pill">🤗 Hugging Face</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3 → LEFT -->
+    <div class="skill-row" data-dir="left" data-speed="0.6">
+      <div class="skill-track">
+        <div class="skill-items">
+          <span class="skill-pill"><i class="devicon-tensorflow-original colored"></i> TensorFlow</span>
+          <span class="skill-pill"><i class="devicon-pytorch-original colored"></i> PyTorch</span>
+          <span class="skill-pill">🔬 Scikit-learn</span>
+          <span class="skill-pill"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+          <span class="skill-pill">🚀 Streamlit</span>
+          <span class="skill-pill">🌶 Flask</span>
+          <span class="skill-pill"><i class="devicon-pandas-plain colored"></i> Pandas</span>
+          <span class="skill-pill">🔢 NumPy</span>
+          <span class="skill-pill">📉 Matplotlib</span>
+          <span class="skill-pill">📊 Power BI</span>
+        </div>
+        <div class="skill-items" aria-hidden="true">
+          <span class="skill-pill"><i class="devicon-tensorflow-original colored"></i> TensorFlow</span>
+          <span class="skill-pill"><i class="devicon-pytorch-original colored"></i> PyTorch</span>
+          <span class="skill-pill">🔬 Scikit-learn</span>
+          <span class="skill-pill"><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+          <span class="skill-pill">🚀 Streamlit</span>
+          <span class="skill-pill">🌶 Flask</span>
+          <span class="skill-pill"><i class="devicon-pandas-plain colored"></i> Pandas</span>
+          <span class="skill-pill">🔢 NumPy</span>
+          <span class="skill-pill">📉 Matplotlib</span>
+          <span class="skill-pill">📊 Power BI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 4 → RIGHT -->
+    <div class="skill-row" data-dir="right" data-speed="0.45">
+      <div class="skill-track">
+        <div class="skill-items">
+          <span class="skill-pill"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
+          <span class="skill-pill"><i class="devicon-azure-plain colored"></i> Azure</span>
+          <span class="skill-pill"><i class="devicon-mongodb-plain colored"></i> MongoDB</span>
+          <span class="skill-pill">🎨 ChromaDB</span>
+          <span class="skill-pill"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+          <span class="skill-pill"><i class="devicon-sqlite-plain colored"></i> SQLite</span>
+          <span class="skill-pill">🔌 REST APIs</span>
+          <span class="skill-pill">⚡ n8n</span>
+          <span class="skill-pill">⚛ Qiskit</span>
+          <span class="skill-pill">🖥 IBM Quantum</span>
+        </div>
+        <div class="skill-items" aria-hidden="true">
+          <span class="skill-pill"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
+          <span class="skill-pill"><i class="devicon-azure-plain colored"></i> Azure</span>
+          <span class="skill-pill"><i class="devicon-mongodb-plain colored"></i> MongoDB</span>
+          <span class="skill-pill">🎨 ChromaDB</span>
+          <span class="skill-pill"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+          <span class="skill-pill"><i class="devicon-sqlite-plain colored"></i> SQLite</span>
+          <span class="skill-pill">🔌 REST APIs</span>
+          <span class="skill-pill">⚡ n8n</span>
+          <span class="skill-pill">⚛ Qiskit</span>
+          <span class="skill-pill">🖥 IBM Quantum</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="skills-also reveal">
+    Also familiar with: Excel · OpenAI API · EDA · ETL Pipelines · BERT · Neural Networks · OpenQASM · SQLAlchemy · Claude API · Automation Anywhere · RPA
+  </p>
+</section>
+
+<!-- ======== ACHIEVEMENTS ======== -->
+<section id="achievements" data-section="05">
+  <div class="section-label">/ 05 ACHIEVEMENTS</div>
+  <h2 class="section-heading reveal">Recognition &amp; Credentials</h2>
+
+  <div class="bento-grid">
+
+    <!-- Big hackathon card -->
+    <div class="bento-card bento-2col bento-glow reveal-up" data-cursor="hover">
+      <div class="bento-icon">🏆</div>
+      <h3 class="bento-title">1st Prize — Amaravati Quantum Valley Hackathon</h3>
+      <p class="bento-sub">National Level · 2026 · Quantum-based optimization using IBM Quantum Platform &amp; Qiskit</p>
+      <span class="bento-badge">NATIONAL LEVEL</span>
+    </div>
+
+    <!-- Project Expo -->
+    <div class="bento-card reveal-up" data-cursor="hover">
+      <div class="bento-icon">🥇</div>
+      <h3 class="bento-title">1st Prize — College Project Expo</h3>
+      <p class="bento-sub">Nova AI Voice Assistant · College Level · 2025</p>
+    </div>
+
+    <!-- Certifications count -->
+    <div class="bento-card bento-tall reveal-up" data-cursor="hover" style="text-align:center;justify-content:center;align-items:center;">
+      <span class="bento-big-num">9</span>
+      <h3 class="bento-title" style="margin:0">Industry Certifications</h3>
+      <div class="bento-pills">
+        <span class="bento-pill">IBM</span>
+        <span class="bento-pill">Infosys</span>
+        <span class="bento-pill">Deloitte</span>
+        <span class="bento-pill">Cisco</span>
+        <span class="bento-pill">Automation Anywhere</span>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="bento-card reveal-up" data-cursor="hover">
+      <div class="bento-icon">🎓</div>
+      <h3 class="bento-title">BSc Artificial Intelligence</h3>
+      <p class="bento-sub">Aditya Degree College, Vizag · 2023–2026 · CGPA 9.0</p>
+    </div>
+
+    <!-- Certifications list -->
+    <div class="bento-card bento-2col reveal-up" data-cursor="hover">
+      <h3 class="bento-title" style="margin-bottom:20px">Certifications</h3>
+      <div class="cert-grid">
+        <div class="cert-col">
+          <div class="cert-item">IBM + Simplilearn: AI &amp; ML</div>
+          <div class="cert-item">Infosys Springboard: NLP &amp; Deep Learning</div>
+          <div class="cert-item">Deloitte: Data Analytics</div>
+          <div class="cert-item">RPA Automation Anywhere: Essentials</div>
+        </div>
+        <div class="cert-col">
+          <div class="cert-item">Cisco: Python Essentials</div>
+          <div class="cert-item">Cisco: C Language</div>
+          <div class="cert-item">Fundamentals of Quantum Algorithms (IBM)</div>
+          <div class="cert-item">WISER Quantum Fundamentals — APSCHE &amp; Qubitech</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======== EDUCATION ======== -->
+<section id="education" data-section="06">
+  <div class="section-label">/ 06 EDUCATION</div>
+
+  <div class="timeline">
+    <div class="timeline-line"><div class="timeline-line-fill"></div></div>
+
+    <div class="timeline-item reveal-up">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-top">
+          <div>
+            <span class="tl-company" style="color:var(--volt)">B.Sc. Artificial Intelligence</span>
+            <h3 class="tl-role">Aditya Degree College, Visakhapatnam</h3>
+          </div>
+          <span class="tl-period">2023 – 2026 · CGPA 9.0</span>
+        </div>
+        <p class="tl-desc">Specialization in ML, NLP, Generative AI, Quantum Computing, and Data Analytics</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-up">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-top">
+          <div>
+            <span class="tl-company" style="color:var(--slate)">Senior Secondary (MPC)</span>
+            <h3 class="tl-role">Sri Chaitanya Junior College</h3>
+          </div>
+          <span class="tl-period">2023</span>
+        </div>
+        <p class="tl-desc">Mathematics, Physics, Chemistry</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-up">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-top">
+          <div>
+            <span class="tl-company" style="color:var(--slate)">Secondary Education (SSC)</span>
+            <h3 class="tl-role">Sri Srinivasa High School</h3>
+          </div>
+          <span class="tl-period">2021 · 97.33% 🏅</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======== CONTACT ======== -->
+<section id="contact" data-section="07">
+  <div class="section-label">/ 07 LET'S CONNECT</div>
+
+  <div class="contact-grid">
+    <div class="contact-left">
+      <h2 class="contact-heading reveal">Got a project, role, or wild idea?</h2>
+      <p class="contact-sub reveal">Open to internships, full-time roles, freelance AI projects, and collaborations. I reply fast.</p>
+
+      <div class="contact-rows">
+        <div class="contact-row" id="copy-email-row" data-cursor="hover" title="Click to copy email">
+          <span class="cr-icon">📧</span>
+          <div>
+            <span class="cr-label">Email</span>
+            <span class="cr-val">amananda022@gmail.com</span>
+          </div>
+          <span class="cr-copy">Copy</span>
+        </div>
+        <div class="contact-row" data-cursor="hover">
+          <span class="cr-icon">📱</span>
+          <div>
+            <span class="cr-label">Phone / WhatsApp</span>
+            <span class="cr-val">+91 6281947629</span>
+          </div>
+        </div>
+        <div class="contact-row" data-cursor="hover">
+          <span class="cr-icon">📍</span>
+          <div>
+            <span class="cr-label">Location</span>
+            <span class="cr-val">Visakhapatnam, India &nbsp;<span id="contact-clock" style="font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:0.8em"></span></span>
+          </div>
+        </div>
+        <div class="contact-row" data-cursor="hover">
+          <span class="cr-icon">⚡</span>
+          <div>
+            <span class="cr-label">Response Time</span>
+            <span class="cr-val">&lt; 24 hours typically</span>
+          </div>
+        </div>
+        <a href="https://www.linkedin.com/in/nanda-aman" target="_blank" rel="noopener" class="contact-row" data-cursor="hover">
+          <span class="cr-icon">💼</span>
+          <div>
+            <span class="cr-label">LinkedIn</span>
+            <span class="cr-val">linkedin.com/in/nanda-aman ↗</span>
+          </div>
+        </a>
+        <a href="https://github.com/amannanda-22" target="_blank" rel="noopener" class="contact-row" data-cursor="hover">
+          <span class="cr-icon">🐙</span>
+          <div>
+            <span class="cr-label">GitHub</span>
+            <span class="cr-val">github.com/amannanda-22 ↗</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <form class="contact-form" id="contact-form">
+        <!-- ★ Web3Forms key — replace YOUR_ACCESS_KEY_HERE with your key from web3forms.com/access -->
+        <input type="hidden" name="access_key" value="df51f2aa-e409-4c7b-ab34-7de9d6ab544f" />
+        <input type="hidden" name="subject" value="New Portfolio Inquiry — Aman Nanda" />
+        <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+        <input type="checkbox" name="botcheck" style="display:none" />
+
+        <div class="form-field">
+          <input type="text" name="name" id="f-name" placeholder=" " required autocomplete="name" />
+          <label for="f-name">Name</label>
+        </div>
+        <div class="form-field">
+          <input type="email" name="email" id="f-email" placeholder=" " required autocomplete="email" />
+          <label for="f-email">Email</label>
+        </div>
+        <div class="form-field">
+          <input type="text" name="subject_line" id="f-subject" placeholder=" " required />
+          <label for="f-subject">Subject</label>
+        </div>
+        <div class="form-field">
+          <textarea name="message" id="f-message" rows="5" placeholder=" " required></textarea>
+          <label for="f-message">Message</label>
+        </div>
+        <button type="submit" class="btn-primary form-submit" id="form-submit-btn" data-cursor="hover">SEND MESSAGE →</button>
+        <p class="form-note" id="form-status"></p>
+        <p class="form-note">Or email directly: <a href="mailto:nandaamannaidu@gmail.com">nandaamannaidu@gmail.com</a></p>
+      </form>
+
+      <div class="social-links">
+        <a href="https://github.com/amannanda-22" target="_blank" rel="noopener" data-cursor="hover">GitHub</a>
+        <a href="https://www.linkedin.com/in/nanda-aman" target="_blank" rel="noopener" data-cursor="hover">LinkedIn</a>
+        <a href="mailto:amananda022@gmail.com" data-cursor="hover">Email</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener" data-cursor="hover">Resume ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer id="footer">
+  <div class="footer-bg-text" id="footer-bg">AMAN</div>
+  <div class="footer-content">
+    <div class="footer-socials">
+      <a href="https://github.com/amannanda-22" target="_blank" rel="noopener" data-cursor="hover">GITHUB</a>
+      <a href="https://www.linkedin.com/in/nanda-aman" target="_blank" rel="noopener" data-cursor="hover">LINKEDIN</a>
+      <a href="mailto:amananda022@gmail.com" data-cursor="hover">EMAIL</a>
+      <a href="/resume.pdf" target="_blank" rel="noopener" data-cursor="hover">RESUME</a>
+    </div>
+    <p class="footer-copy">2026 — Designed &amp; Built by <span style="color:var(--volt)">Aman Nanda</span></p>
+  </div>
+</footer>
+
+<!-- Copy Toast -->
+<div id="copy-toast">Email copied to clipboard ✓</div>
+
+<!-- JS Modules -->
+<script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
